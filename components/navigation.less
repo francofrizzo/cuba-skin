@@ -1,0 +1,149 @@
+@import "mediawiki.mixins";
+@import "personalMenu";
+@import "search";
+@import "tabs";
+
+/* Hide, but keep accessible for screen-readers */
+#mw-navigation h2 {
+    position: absolute;
+    top: -9999px;
+}
+
+/* Head */
+#mw-page-base {
+    height: 9.5em;
+}
+
+#mw-head-base {
+    margin-top: -9.5em;
+    height: 9.5em;
+}
+
+div#mw-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    h3 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Navigation Containers */
+#left-navigation, #right-navigation {
+    margin-top: 1em;
+}
+
+#left-navigation {
+    float: left;
+    /* When right nav would overlap left nav, it's placed below it
+       (normal CSS floats behavior). This rule ensures that no empty space
+       is shown between them due to right nav's margin-top. Page layout
+       is still broken, but at least the nav overlaps only the page title
+       instead of half the content. */
+    margin-bottom: -2.5em;
+    margin-left: @menu-panel-width;
+    /* IE 6 double-margin bug fix */
+    display: inline;
+}
+
+#right-navigation {
+    float: right;
+}
+
+/* Logo */
+#p-logo {
+    position: absolute;
+    top: -@menu-panel-logo-height;
+    left: (@menu-panel-width - @menu-panel-logo-width)/2;
+    width: @menu-panel-logo-width;
+    height: @menu-panel-logo-height;
+
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        text-decoration: none;
+    }
+}
+
+/* Panel */
+div#mw-panel {
+    font-size: @menu-main-font-size;
+    position: absolute;
+    top: @menu-panel-top-offset + @menu-panel-logo-height;
+    width: @menu-panel-width;
+
+    div.portal {
+        margin: 0;
+        padding: 1em 0;
+        direction: ltr;
+        background-position: top left;
+        background-repeat: no-repeat;
+
+        h3 {
+            color: @menu-main-heading-color;
+            font-size: @menu-main-body-font-size;
+            font-weight: normal;
+            margin: 0 20px;
+            cursor: default;
+            padding: 0.65em 0;
+            border-bottom: 1px solid @content-border-color;
+        }
+
+        div.body {
+            margin: @menu-main-body-margin;
+            padding-top: .5em;
+            padding-bottom: .5em;
+            border-bottom: 1px solid @content-border-color;
+
+            ul {
+                list-style-type: none;
+                list-style-image: none;
+                margin: 0;
+                padding: @menu-main-body-padding;
+
+                li {
+                    font-size: @menu-main-body-font-size;
+                    padding: 0.3em 0;
+                    margin: 0;
+                    margin-left: 1em;
+                    word-wrap: break-word;
+
+                    a {
+                        color: @menu-main-body-link-color;
+                        &:visited {
+                            color: @menu-main-body-link-visited-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* First sidebar portlet. Not using :first-of-type for IE<=8 support. */
+    #p-logo + div.portal {
+        background-image: none;
+        margin-top: 0;
+        h3 {
+            display: none;
+        }
+        div.body {
+            padding: 0;
+            border: none;
+            
+            ul {
+                li {
+                    margin: 0;
+                    padding: 0.65em 0;
+                    border-bottom: 1px solid @content-border-color;
+                }
+            }
+        }
+    }
+}

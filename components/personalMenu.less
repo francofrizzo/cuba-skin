@@ -1,0 +1,73 @@
+/* Personal */
+#faux-p-personal {
+    background-color: @menu-personal-background-color;
+    border-bottom: 1px solid @menu-personal-border-color;
+
+    position: absolute;
+    height: @menu-personal-height;
+    width: 100%;
+}
+
+#p-personal {
+    position: absolute;
+    right: 0;
+    height: @menu-personal-height;
+    /* Display on top of page tabs - bugs 37158, 48078 */
+    z-index: 100;
+
+    h3 {
+        display: none;
+    }
+
+    ul {
+        list-style-type: none;
+        list-style-image: none;
+        margin: 0;
+    }
+
+    li {
+        line-height: 1.125em;
+        /* @noflip */
+        float: left;
+        margin-left: 1em;
+        margin-top: 0.5em;
+        font-size: @menu-personal-font-size;
+        white-space: nowrap;
+
+        &:not(:last-child)::after {
+        	content: ".";
+        	overflow: hidden;
+        	margin-left: 1em;
+        	width: 1px;
+        	display: inline-block;
+        	vertical-align: bottom;
+        	background-color: #565656;
+        	color: #565656;
+        }
+    }
+
+    a, a:visited {
+    	color: #cdcdcd;
+    }
+
+    a.new, a.new:visited {
+    	font-style: italic;
+    	color: #ccc;
+    }
+}
+
+/* Icon for Usernames */
+#pt-userpage,
+#pt-anonuserpage {
+    background-position: left top;
+    background-repeat: no-repeat;
+    /* SVG support using a transparent gradient to guarantee cross-browser
+     * compatibility (browsers able to understand gradient syntax support also SVG) */
+    .background-image-svg('images/user-icon.svg', 'images/user-icon.png');
+    padding-left: 20px !important;
+    a, a.new {
+		font-weight: bold;
+    	font-style: normal;
+    	color: #ededed;
+    }
+}
