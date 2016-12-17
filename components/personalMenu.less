@@ -54,20 +54,34 @@
     	font-style: italic;
     	color: #ccc;
     }
+
+    a::before {
+        font: normal normal normal 1em/1 FontAwesome;
+        text-align: center;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-right: .5em;
+        display: inline-block;
+        width: 1em;
+    }
 }
 
 /* Icon for Usernames */
 #pt-userpage,
 #pt-anonuserpage {
-    background-position: left top;
-    background-repeat: no-repeat;
-    /* SVG support using a transparent gradient to guarantee cross-browser
-     * compatibility (browsers able to understand gradient syntax support also SVG) */
-    .background-image-svg('images/user-icon.svg', 'images/user-icon.png');
-    padding-left: 20px !important;
     a, a.new {
 		font-weight: bold;
     	font-style: normal;
     	color: #ededed;
+
+        &::before {
+            content: "\f007";
+        }
     }
 }
+
+#pt-logout a::before {
+    content: "\f08b";
+}
+

@@ -31,6 +31,9 @@
 				"screen.less": {
 					"media": "screen"
 				},
+				"font-awesome/less/font-awesome.less": {
+					"media": "screen"
+				},
 				"screen-hd.less": {
 					"media": "screen and (min-width: 982px)"
 				}

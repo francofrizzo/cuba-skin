@@ -94,6 +94,22 @@ div#mw-panel {
             cursor: default;
             padding: 0.65em 0;
             border-bottom: 1px solid @content-border-color;
+
+            &::before {
+                font: normal normal normal 1em/1 FontAwesome;
+                text-align: center;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                color: @menu-main-body-link-color;
+                margin-right: .5em;
+                display: inline-block;
+                width: 1.5em;
+            }
+
+            &#p-tb-label::before {
+                content: "\f0ad";
+            }
         }
 
         div.body {
@@ -121,6 +137,37 @@ div#mw-panel {
                             color: @menu-main-body-link-visited-color;
                         }
                     }
+
+                    &::before {
+                        font: normal normal normal 1em/1 FontAwesome;
+                        text-align: center;
+                        text-rendering: auto;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        color: @menu-main-body-link-color;
+                        margin-right: .5em;
+                        display: inline-block;
+                        width: 1.5em;
+                    }
+
+                    &#n-Home::before {
+                        content: "\f015";
+                    }
+                    &#n-Lista-de-materias::before {
+                        content: "\f03a";
+                    }
+                    &#n-currentevents::before {
+                        content: "\f1ea";
+                    }
+                    &#n-recentchanges::before {
+                        content: "\f1da";
+                    }
+                    &#n-randompage::before {
+                        content: "\f074";
+                    }
+                    &#n-help::before {
+                        content: "\f059";
+                    }
                 }
             }
         }
@@ -136,7 +183,7 @@ div#mw-panel {
         div.body {
             padding: 0;
             border: none;
-            
+
             ul {
                 li {
                     margin: 0;
